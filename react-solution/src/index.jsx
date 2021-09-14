@@ -3,8 +3,12 @@ import ReactDOM from 'react-dom';
 
 import reportWebVitals from './reportWebVitals';
 
+import Navbar from './components/Navbar';
+
 ReactDOM.render(
-  <React.StrictMode />,
+  <React.StrictMode>
+    <Navbar />
+  </React.StrictMode>,
   document.getElementById('root'),
 );
 
