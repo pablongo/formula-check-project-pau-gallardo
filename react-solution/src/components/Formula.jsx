@@ -8,13 +8,22 @@ export default function Formula() {
 
   const [currentFormulaState, setCurrentFormulaState] = useState(formulaStates.DISPLAY);
 
+  function handleEdit() {
+    setCurrentFormulaState(formulaStates.EDIT);
+  }
+
   return (
     <>
       <input type="text" />
-      <button type="button">Edit</button>
-      <button type="button">Save</button>
-      <button type="button">Cancel</button>
-      <button type="button">Delete</button>
+      {currentFormulaState === formulaStates.EDIT
+        ? (
+          <>
+            <button type="button">Save</button>
+            <button type="button">Cancel</button>
+            <button type="button">Delete</button>
+          </>
+        )
+        : <button type="button" onClick={handleEdit}>Edit</button>}
     </>
   );
 }
