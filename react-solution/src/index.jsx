@@ -1,17 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import { Provider } from 'react-redux';
+import configureStore from './redux/store';
 import reportWebVitals from './reportWebVitals';
 
 import Navbar from './components/Navbar';
 import Formula from './components/Formula';
 import Product from './components/Product';
 
+import preloadedState from './mocks/preloadedState.mock';
+
 ReactDOM.render(
   <React.StrictMode>
-    <Navbar />
-    <Product />
-    <Formula />
+    <Provider store={configureStore(preloadedState)}>
+      <Navbar />
+      <Product />
+      <Formula />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
 );
