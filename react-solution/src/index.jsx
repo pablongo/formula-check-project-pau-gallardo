@@ -4,10 +4,14 @@ import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 
 import Navbar from './components/Navbar';
+import Formula from './components/Formula';
+import Product from './components/Product';
 
 ReactDOM.render(
   <React.StrictMode>
     <Navbar />
+    <Product />
+    <Formula />
   </React.StrictMode>,
   document.getElementById('root'),
 );
