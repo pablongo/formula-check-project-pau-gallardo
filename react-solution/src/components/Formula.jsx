@@ -1,3 +1,4 @@
+/* eslint-disable no-eval */
 import React, { useState } from 'react';
 
 export default function Formula() {
@@ -13,29 +14,43 @@ export default function Formula() {
     setCurrentFormulaState(formulaStates.EDIT);
   }
 
-  function handleSave() {
+  function handleValidation(formulaToValidate) {
+    const P = 1;
+    console.log(P);
+    try {
+      eval(formulaToValidate);
+      return '';
+    } catch (error) {
+      return '';
+    }
+  }
 
+  function handleSave(formulaToSave) {
+    handleValidation(formulaToSave);
   }
 
   function handleCancel() {
-
+    setCurrentFormulaState(formulaStates.DISPLAY);
   }
 
   function handleDelete() {
-
   }
 
-  function handleFormula() {
-
+  function handleFormula(event) {
+    setInputFormula(event.target.value);
   }
 
   return (
     <>
-      <input type="text" />
+      <input
+        type="text"
+        name="formula-input"
+        onChange={handleFormula}
+      />
       {currentFormulaState === formulaStates.EDIT
         ? (
           <>
-            <button type="button" onClick={handleSave}>Save</button>
+            <button type="button" onClick={() => handleSave(inputFormula)}>Save</button>
             <button type="button" onClick={handleCancel}>Cancel</button>
             <button type="button" onClick={handleDelete}>Delete</button>
           </>
