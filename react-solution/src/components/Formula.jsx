@@ -19,18 +19,25 @@ export default function Formula({ product, index }) {
     setCurrentFormulaState(formulaStates.EDIT);
   }
 
-  function handleValidation(formulaToValidate) {
+  function handleValidation(formulaToValidate, { price }) {
+    // eslint-disable-next-line no-unused-vars
+    const P = price;
     try {
-      eval(formulaToValidate);
-      return true;
+      const result = eval(formulaToValidate);
+      return result;
     } catch (error) {
-      return false;
+      return undefined;
     }
   }
 
   function handleSave(formulaToSave, productData, storeArrayIndex) {
-    if (handleValidation(formulaToSave)) {
-      dispatch(saveFormula(formulaToSave, productData, storeArrayIndex));
+    if (handleValidation(formulaToSave, productData)) {
+      const modifiedProduct = {
+        ...productData,
+        formula: formulaToSave,
+        index,
+      };
+      dispatch(saveFormula(modifiedProduct, storeArrayIndex));
     }
   }
 
