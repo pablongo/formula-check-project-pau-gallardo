@@ -1,8 +1,8 @@
 import actionTypes from './actionTypes';
 
-export function saveFormula(product, index) {
+export function saveFormulaAndPrice(product, index) {
   return ({
-    type: actionTypes.SAVE_FORMULA,
+    type: actionTypes.SAVE_FORMULA_PRICE,
     product,
     index,
   });

@@ -2,7 +2,7 @@
 /* eslint-disable no-eval */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { saveFormula } from '../redux/actions/actionCreators';
+import { saveFormulaAndPrice } from '../redux/actions/actionCreators';
 
 export default function Formula({ product, index }) {
   const dispatch = useDispatch();
@@ -31,13 +31,15 @@ export default function Formula({ product, index }) {
   }
 
   function handleSave(formulaToSave, productData, storeArrayIndex) {
-    if (handleValidation(formulaToSave, productData)) {
+    const newPrice = handleValidation(formulaToSave, productData);
+    if (newPrice) {
       const modifiedProduct = {
         ...productData,
         formula: formulaToSave,
+        formulaPrice: newPrice,
         index,
       };
-      dispatch(saveFormula(modifiedProduct, storeArrayIndex));
+      dispatch(saveFormulaAndPrice(modifiedProduct, storeArrayIndex));
     }
   }
 

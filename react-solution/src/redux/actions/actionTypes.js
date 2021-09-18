@@ -1,3 +1,3 @@
 export default {
-  SAVE_FORMULA: 'SAVE_FORMULA',
+  SAVE_FORMULA_PRICE: 'SAVE_FORMULA_PRICE',
 };
