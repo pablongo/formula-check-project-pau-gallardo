@@ -7,7 +7,7 @@ export default function ProductsEditor() {
   const { products } = useSelector((store) => store.products);
   return (
     <>
-      {products.map(() => <Formula />)}
+      {products.map((product, index) => <Formula product={product} index={index} />)}
     </>
   );
 }
