@@ -1,9 +1,12 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-eval */
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { saveFormula } from '../redux/actions/actionCreators';
 
 export default function Formula({ product, index }) {
+  const dispatch = useDispatch();
+
   const formulaStates = {
     DISPLAY: 'DISPLAY',
     EDIT: 'EDIT',
@@ -25,9 +28,9 @@ export default function Formula({ product, index }) {
     }
   }
 
-  function handleSave(formulaToSave, product, index) {
+  function handleSave(formulaToSave, productData, storeArrayIndex) {
     if (handleValidation(formulaToSave)) {
-      saveFormula(formulaToSave, product, index);
+      dispatch(saveFormula(formulaToSave, productData, storeArrayIndex));
     }
   }
 
@@ -52,7 +55,7 @@ export default function Formula({ product, index }) {
       {currentFormulaState === formulaStates.EDIT
         ? (
           <>
-            <button type="button" onClick={() => handleSave(inputFormula)}>Save</button>
+            <button type="button" onClick={() => handleSave(inputFormula, product, index)}>Save</button>
             <button type="button" onClick={handleCancel}>Cancel</button>
             <button type="button" onClick={handleDelete}>Delete</button>
           </>
