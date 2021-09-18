@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-eval */
 import React, { useState } from 'react';
+import { saveFormula } from '../redux/actions/actionCreators';
 
-export default function Formula() {
+export default function Formula({ product, index }) {
   const formulaStates = {
     DISPLAY: 'DISPLAY',
     EDIT: 'EDIT',
@@ -15,18 +17,18 @@ export default function Formula() {
   }
 
   function handleValidation(formulaToValidate) {
-    const P = 1;
-    console.log(P);
     try {
       eval(formulaToValidate);
-      return '';
+      return true;
     } catch (error) {
-      return '';
+      return false;
     }
   }
 
-  function handleSave(formulaToSave) {
-    handleValidation(formulaToSave);
+  function handleSave(formulaToSave, product, index) {
+    if (handleValidation(formulaToSave)) {
+      saveFormula(formulaToSave, product, index);
+    }
   }
 
   function handleCancel() {

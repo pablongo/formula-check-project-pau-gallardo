@@ -1,3 +1,3 @@
 export default {
-  LOAD_PRODUCTS: 'LOAD_PRODUCTS',
+  SAVE_FORMULA: 'SAVE_FORMULA',
 };
