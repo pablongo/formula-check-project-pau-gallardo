@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 
 export default function Formula() {
-  const products = useSelector((store) => store.products);
-  console.log(products);
   const formulaStates = {
     DISPLAY: 'DISPLAY',
     EDIT: 'EDIT',
   };
 
   const [currentFormulaState, setCurrentFormulaState] = useState(formulaStates.DISPLAY);
+  const [inputFormula, setInputFormula] = useState();
 
   function handleEdit() {
     setCurrentFormulaState(formulaStates.EDIT);
@@ -18,10 +16,16 @@ export default function Formula() {
   function handleSave() {
 
   }
+
   function handleCancel() {
 
   }
+
   function handleDelete() {
+
+  }
+
+  function handleFormula() {
 
   }
 

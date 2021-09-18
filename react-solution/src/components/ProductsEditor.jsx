@@ -4,10 +4,10 @@ import { useSelector } from 'react-redux';
 import Formula from './Formula';
 
 export default function ProductsEditor() {
-  const products = useSelector((store) => store.products);
+  const { products } = useSelector((store) => store.products);
   return (
     <>
-      {products.map((product) => <Formula product={product} />)}
+      {products.map(() => <Formula />)}
     </>
   );
 }
