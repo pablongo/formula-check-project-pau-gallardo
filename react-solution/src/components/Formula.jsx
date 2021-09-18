@@ -1,7 +1,9 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable react/require-default-props */
 /* eslint-disable no-eval */
 import React, { useState } from 'react';
+import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
+
 import { saveFormulaAndPrice } from '../redux/actions/actionCreators';
 
 export default function Formula({ product, index }) {
@@ -73,3 +75,15 @@ export default function Formula({ product, index }) {
     </>
   );
 }
+
+Formula.propTypes = {
+  product: PropTypes.shape({
+    name: PropTypes.string,
+    image: PropTypes.string,
+    price: PropTypes.number,
+    formulaPrice: PropTypes.number,
+    formula: PropTypes.string,
+    index: PropTypes.number,
+  }),
+  index: PropTypes.string.isRequired,
+};
