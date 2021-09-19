@@ -1,0 +1,38 @@
+.formula-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.formula-container__input{
+    height: 5vw;
+    border-style: dashed;
+    text-align: center;
+    font-size: 2vw;
+}
+
+.formula-container__input--valid{
+    height: 5vw;
+    border-style: dashed;
+    text-align: center;
+    font-size: 2vw;
+    border-color: tomato;
+}
+
+.formula-container__edit-buttons{
+    display: flex;
+}
+
+.formula-container button{
+    font-size: 2vw;
+    margin: 10px;
+    width:fit-content;
+    height: auto;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+}
+
+.formula-container button:hover{
+    color: #22BA93;
+    transition: 300ms;
+}
