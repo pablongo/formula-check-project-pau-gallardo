@@ -10,7 +10,7 @@ export default function ProductsEditor({ products }) {
   return (
     <div className="products-container">
       {products?.map((product, index) => (
-        <article className="products-container__articles">
+        <article key={product.name} className="products-container__articles">
           <Product product={product} modified />
           <Formula product={product} index={index} />
           <Product product={product} modified={false} />

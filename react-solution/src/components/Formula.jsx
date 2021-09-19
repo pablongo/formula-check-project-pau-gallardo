@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
 
-import { saveFormulaAndPrice, deleteFormula } from '../redux/actions/actionCreators';
+import { saveFormulaAndPrice } from '../redux/actions/actionCreators';
 
 import './Formula.css';
 
@@ -16,6 +16,7 @@ export default function Formula({ product, index }) {
 
   const [currentFormulaState, setCurrentFormulaState] = useState(formulaStates.DISPLAY);
   const [inputFormula, setInputFormula] = useState();
+  const [formulaPlaceholder, setFormulaPlaceholder] = useState(product.formula);
 
   function handleEdit() {
     setCurrentFormulaState(formulaStates.EDIT);
@@ -44,7 +45,9 @@ export default function Formula({ product, index }) {
         formulaPrice: newPrice,
         index,
       };
-      dispatch(deleteFormula(modifiedProduct, storeArrayIndex));
+      dispatch(saveFormulaAndPrice(modifiedProduct, storeArrayIndex));
+      setCurrentFormulaState(formulaStates.DISPLAY);
+      setFormulaPlaceholder(modifiedProduct.formula);
     }
   }
 
@@ -60,6 +63,9 @@ export default function Formula({ product, index }) {
       index,
     };
     dispatch(saveFormulaAndPrice(modifiedProduct, storeArrayIndex));
+    setCurrentFormulaState(formulaStates.DISPLAY);
+    setInputFormula('');
+    setFormulaPlaceholder('');
   }
 
   function handleFormula(event) {
@@ -72,7 +78,8 @@ export default function Formula({ product, index }) {
         type="text"
         className="formula-container__input"
         name="formula-input"
-        placeholder={product.formula}
+        placeholder={formulaPlaceholder}
+        value={inputFormula}
         onChange={handleFormula}
         disabled={currentFormulaState === formulaStates.DISPLAY}
       />
