@@ -4,10 +4,10 @@
 }
 
 .formula-container__input{
-    height: 80px;
+    height: 5vw;
     border-style: dashed;
     text-align: center;
-    font-size: 30px;
+    font-size: 2vw;
 }
 
 .formula-container__edit-buttons{
@@ -15,7 +15,7 @@
 }
 
 .formula-container button{
-    font-size: 15px;
+    font-size: 2vw;
     margin: 10px;
     width:fit-content;
     height: auto;
