@@ -11,7 +11,7 @@ export default [
     image: 'url',
     price: 599,
     formulaPrice: 599,
-    formula: '',
+    formula: '2*P',
   },
   {
     name: 'Dumb watch',
