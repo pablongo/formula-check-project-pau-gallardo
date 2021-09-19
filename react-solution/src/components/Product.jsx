@@ -11,13 +11,13 @@ export default function Product({ product, modified }) {
         ? (
           <>
             <h3>Original price</h3>
-            <span>{product?.price}</span>
+            <span>{`${product?.price}€`}</span>
           </>
         )
         : (
           <>
             <h3>Modified price</h3>
-            <span>{product?.formulaPrice}</span>
+            <span>{`${product?.formulaPrice}€`}</span>
           </>
         )}
     </div>

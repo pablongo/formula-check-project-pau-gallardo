@@ -25,7 +25,10 @@ export default function Formula({ product, index }) {
     // eslint-disable-next-line no-unused-vars
     const P = price;
     try {
-      const result = eval(formulaToValidate);
+      let result = eval(formulaToValidate);
+      if (result === Infinity) {
+        result = undefined;
+      }
       return result;
     } catch (error) {
       return undefined;
@@ -68,13 +71,36 @@ export default function Formula({ product, index }) {
       />
       {currentFormulaState === formulaStates.EDIT
         ? (
-          <>
-            <button type="button" onClick={() => handleSave(inputFormula, product, index)}>Save</button>
-            <button type="button" onClick={handleCancel}>Cancel</button>
-            <button type="button" onClick={handleDelete}>Delete</button>
-          </>
+          <div>
+            <button
+              type="button"
+              onClick={() => handleSave(inputFormula, product, index)}
+            >
+              Save
+            </button>
+            <button
+              type="button"
+              onClick={handleCancel}
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              onClick={handleDelete}
+            >
+              Delete
+
+            </button>
+          </div>
         )
-        : <button type="button" onClick={handleEdit}>Edit</button>}
+        : (
+          <button
+            type="button"
+            onClick={handleEdit}
+          >
+            Edit
+          </button>
+        )}
     </form>
   );
 }
@@ -88,5 +114,5 @@ Formula.propTypes = {
     formula: PropTypes.string,
     index: PropTypes.number,
   }),
-  index: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
 };
