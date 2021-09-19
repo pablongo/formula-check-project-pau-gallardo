@@ -19,3 +19,29 @@
     margin: 15px;
 }
 
+@media screen and (max-width:600px) {
+    .navbar{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        background-color: rgb(18,31,44);
+        height: 40px;
+        width: 100vw;
+        top: 0px;
+        position: fixed;
+    }
+
+    .navbar__logo{
+        height: 20px;
+        width: auto;
+    }
+
+    .navbar a{
+        text-decoration: none;
+        color:white;
+        margin: 5px;
+        font-size: 11px;
+        align-self: center;
+    }
+}
+
