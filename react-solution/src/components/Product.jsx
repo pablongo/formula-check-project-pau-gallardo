@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import './Product.css';
 
 export default function Product({ product, modified }) {
   return (
-    <>
+    <div className="product-container">
       <h2>{product?.name}</h2>
-      <img src="" alt="" />
+      <img src="https://via.placeholder.com/150" alt="" />
       {modified
         ? (
           <>
@@ -19,6 +20,6 @@ export default function Product({ product, modified }) {
             <span>{product?.formulaPrice}</span>
           </>
         )}
-    </>
+    </div>
   );
 }
