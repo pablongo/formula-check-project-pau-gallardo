@@ -8,6 +8,8 @@ import PriceFormulasPage from './pages/PriceFormulasPage';
 
 import preloadedState from './mocks/preloadedState.mock';
 
+import './index.css';
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={configureStore(preloadedState)}>
