@@ -1,13 +1,19 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import { useSelector } from 'react-redux';
 
 import Formula from './Formula';
+import Product from './Product';
 
-export default function ProductsEditor() {
-  const products = useSelector((store) => store.products);
+export default function ProductsEditor({ products }) {
   return (
     <>
-      {products.map((product, index) => <Formula product={product} index={index} />)}
+      {products?.map((product, index) => (
+        <>
+          <Product product={product} modified />
+          <Formula product={product} index={index} />
+          <Product product={product} modified={false} />
+        </>
+      ))}
     </>
   );
 }

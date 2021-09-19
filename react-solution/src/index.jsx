@@ -5,8 +5,7 @@ import configureStore from './redux/store';
 import reportWebVitals from './reportWebVitals';
 
 import Navbar from './components/Navbar';
-import ProductsEditor from './components/ProductsEditor';
-import Product from './components/Product';
+import PriceFormulasPage from './pages/PriceFormulasPage';
 
 import preloadedState from './mocks/preloadedState.mock';
 
@@ -14,8 +13,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={configureStore(preloadedState)}>
       <Navbar />
-      <Product />
-      <ProductsEditor />
+      <PriceFormulasPage />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root'),

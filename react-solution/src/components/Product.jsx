@@ -1,12 +1,24 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
-export default function Product() {
+export default function Product({ product, modified }) {
   return (
     <>
-      <h2>Product tittle</h2>
+      <h2>{product?.name}</h2>
       <img src="" alt="" />
-      <h3>Original price</h3>
-      <span>23€</span>
+      {modified
+        ? (
+          <>
+            <h3>Original price</h3>
+            <span>{product?.price}</span>
+          </>
+        )
+        : (
+          <>
+            <h3>Modified price</h3>
+            <span>{product?.formulaPrice}</span>
+          </>
+        )}
     </>
   );
 }
