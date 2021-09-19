@@ -52,7 +52,14 @@ export default function Formula({ product, index }) {
     setCurrentFormulaState(formulaStates.DISPLAY);
   }
 
-  function handleDelete() {
+  function handleDelete(productData, storeArrayIndex) {
+    const modifiedProduct = {
+      ...productData,
+      formula: '',
+      formulaPrice: productData.price,
+      index,
+    };
+    dispatch(saveFormulaAndPrice(modifiedProduct, storeArrayIndex));
   }
 
   function handleFormula(event) {
@@ -71,7 +78,7 @@ export default function Formula({ product, index }) {
       />
       {currentFormulaState === formulaStates.EDIT
         ? (
-          <div>
+          <div className="formula-container__edit-buttons">
             <button
               type="button"
               onClick={() => handleSave(inputFormula, product, index)}

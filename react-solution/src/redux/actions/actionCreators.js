@@ -8,8 +8,10 @@ export function saveFormulaAndPrice(product, index) {
   });
 }
 
-export function saveeFormula() {
+export function deleteFormula(product, index) {
   return ({
-
+    type: actionTypes.DELETE_FORMULA,
+    product,
+    index,
   });
 }
