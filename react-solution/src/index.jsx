@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import configureStore from './redux/store';
 import reportWebVitals from './reportWebVitals';
 
-import Navbar from './components/Navbar';
 import PriceFormulasPage from './pages/PriceFormulasPage';
 
 import preloadedState from './mocks/preloadedState.mock';
@@ -12,7 +11,6 @@ import preloadedState from './mocks/preloadedState.mock';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={configureStore(preloadedState)}>
-      <Navbar />
       <PriceFormulasPage />
     </Provider>
   </React.StrictMode>,
