@@ -59,6 +59,8 @@ export default function Formula({ product, index }) {
   return (
     <form className="formula-container">
       <input
+        disabled={currentFormulaState === formulaStates.DISPLAY}
+        className="formula-container__input"
         type="text"
         name="formula-input"
         onChange={handleFormula}
