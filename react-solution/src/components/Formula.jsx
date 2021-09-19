@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 
 import { saveFormulaAndPrice } from '../redux/actions/actionCreators';
 
+import './Formula.css';
+
 export default function Formula({ product, index }) {
   const dispatch = useDispatch();
 
@@ -55,7 +57,7 @@ export default function Formula({ product, index }) {
   }
 
   return (
-    <>
+    <form className="formula-container">
       <input
         type="text"
         name="formula-input"
@@ -70,7 +72,7 @@ export default function Formula({ product, index }) {
           </>
         )
         : <button type="button" onClick={handleEdit}>Edit</button>}
-    </>
+    </form>
   );
 }
 

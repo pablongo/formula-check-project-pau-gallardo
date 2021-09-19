@@ -10,11 +10,11 @@ export default function ProductsEditor({ products }) {
   return (
     <>
       {products?.map((product, index) => (
-        <articles className="product-formula">
+        <article className="product-formula">
           <Product product={product} modified />
           <Formula product={product} index={index} />
           <Product product={product} modified={false} />
-        </articles>
+        </article>
       ))}
     </>
   );
