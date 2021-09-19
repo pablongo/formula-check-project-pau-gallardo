@@ -5,6 +5,7 @@
     background-color: rgb(18,31,44);
     height: 100vh;
     width: 160px;
+    position: fixed;
 }
 
 .navbar__logo{
@@ -17,3 +18,4 @@
     color:white;
     margin: 15px;
 }
+

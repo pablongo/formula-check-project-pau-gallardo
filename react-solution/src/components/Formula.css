@@ -10,6 +10,14 @@
     font-size: 2vw;
 }
 
+.formula-container__input--valid{
+    height: 5vw;
+    border-style: dashed;
+    text-align: center;
+    font-size: 2vw;
+    border-color: tomato;
+}
+
 .formula-container__edit-buttons{
     display: flex;
 }
@@ -26,5 +34,5 @@
 
 .formula-container button:hover{
     color: #22BA93;
-    transition: 500ms;
+    transition: 300ms;
 }

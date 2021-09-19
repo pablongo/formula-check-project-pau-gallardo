@@ -17,6 +17,7 @@ export default function Formula({ product, index }) {
   const [currentFormulaState, setCurrentFormulaState] = useState(formulaStates.DISPLAY);
   const [inputFormula, setInputFormula] = useState();
   const [formulaPlaceholder, setFormulaPlaceholder] = useState(product.formula);
+  const [validFormula, setvalidFormula] = useState(true);
 
   function handleEdit() {
     setCurrentFormulaState(formulaStates.EDIT);
@@ -28,10 +29,13 @@ export default function Formula({ product, index }) {
     try {
       let result = eval(formulaToValidate);
       if (result === Infinity) {
+        setvalidFormula(false);
         result = undefined;
       }
+      setvalidFormula(true);
       return result;
     } catch (error) {
+      setvalidFormula(false);
       return undefined;
     }
   }
@@ -76,7 +80,7 @@ export default function Formula({ product, index }) {
     <form className="formula-container">
       <input
         type="text"
-        className="formula-container__input"
+        className={validFormula ? 'formula-container__input' : 'formula-container__input--valid'}
         name="formula-input"
         placeholder={formulaPlaceholder}
         value={inputFormula}
@@ -103,7 +107,6 @@ export default function Formula({ product, index }) {
               onClick={() => handleDelete(product, index)}
             >
               Delete
-
             </button>
           </div>
         )
