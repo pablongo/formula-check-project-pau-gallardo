@@ -8,6 +8,11 @@ export default function productReducer(products = [], action) {
       newProductList = [...newProductList];
       break;
 
+    case actionTypes.DELETE_FORMULA:
+      newProductList[action.index] = action.product;
+      newProductList = [...newProductList];
+      break;
+
     default:
       break;
   }

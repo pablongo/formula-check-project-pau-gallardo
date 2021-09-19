@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
 
-import { saveFormulaAndPrice } from '../redux/actions/actionCreators';
+import { saveFormulaAndPrice, deleteFormula } from '../redux/actions/actionCreators';
 
 import './Formula.css';
 
@@ -44,7 +44,7 @@ export default function Formula({ product, index }) {
         formulaPrice: newPrice,
         index,
       };
-      dispatch(saveFormulaAndPrice(modifiedProduct, storeArrayIndex));
+      dispatch(deleteFormula(modifiedProduct, storeArrayIndex));
     }
   }
 
@@ -93,7 +93,7 @@ export default function Formula({ product, index }) {
             </button>
             <button
               type="button"
-              onClick={handleDelete}
+              onClick={() => handleDelete(product, index)}
             >
               Delete
 
