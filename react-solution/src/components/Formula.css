@@ -2,3 +2,10 @@
     display: flex;
     flex-direction: column;
 }
+
+.formula-container__input{
+    height: 80px;
+    border-style: dashed;
+    text-align: center;
+    font-size: 30px;
+}

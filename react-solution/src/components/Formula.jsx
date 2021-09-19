@@ -59,11 +59,12 @@ export default function Formula({ product, index }) {
   return (
     <form className="formula-container">
       <input
-        disabled={currentFormulaState === formulaStates.DISPLAY}
-        className="formula-container__input"
         type="text"
+        className="formula-container__input"
         name="formula-input"
+        placeholder={product.formula}
         onChange={handleFormula}
+        disabled={currentFormulaState === formulaStates.DISPLAY}
       />
       {currentFormulaState === formulaStates.EDIT
         ? (
