@@ -7,34 +7,35 @@ class FormulaPage {
   setView() {
     this.productList.forEach((product, index) => {
       const productNotModified = `
-      <div className="product-container">
-      <h2 className="product-container__title">${product?.name}</h2>
+      <div class="product-container">
+      <h2 class="product-container__title">${product?.name}</h2>
       <img
-        className="product-container__image"
+        class="product-container__image"
         src="https://via.placeholder.com/150"
         alt="product"
       />
-      <h3 className="product-container__title">Original price</h3>
-      <span className="product-container__title">${product?.price}€</span>
+      <h3 class="product-container__title">Original price</h3>
+      <span class="product-container__title">${product?.price}€</span>
       </div>
       `;
 
       const productModified = `
-      <div className="product-container">
-      <h2 className="product-container__title">${product?.name}</h2>
+      <div class="product-modified-container">
+      <h2 class="product-container__title">${product?.name}</h2>
       <img
         className="product-container__image"
         src="https://via.placeholder.com/150"
         alt="product"
       />
-      <h3 className="product-container__title">Modified price</h3>
-      <span className="product-container__title">${product?.formulaPrice}€</span>
+      <h3 class="product-container__title">Modified price</h3>
+      <span class="product-container__title" id="product-formulaPrice-${index}">${product?.formulaPrice}€</span>
       </div>
       `;
 
       const formula = `
-      <form>
+      <form class="formula-${index}">
         <input
+        id="formula-input-${index}"
         type="text"
         name="formula-input"
         placeholder=${product.formula}
@@ -49,8 +50,47 @@ class FormulaPage {
         </button>
       </form>
     `;
-
       document.getElementById('product-list').innerHTML += productNotModified + formula + productModified;
     });
+  }
+
+  renderFormula(index) {
+    if (this.state === 'DISPLAY') {
+      this.component = `
+        <button
+        type="button"
+        onclick=handleEdit(${index})
+        >
+        Edit
+        </button>
+        `;
+    } else {
+      this.component = `
+        <button
+        type="button"
+        onclick=handleSave(${index})
+        >
+        Save
+        </button>
+        <button
+        type="button"
+        onclick=handleCancel(${index})
+        >
+        Cancel
+        </button>
+        <button
+        type="button"
+        onclick=handleDelete(product, index)
+        >
+        Delete
+        </button>
+        `;
+    }
+    document.getElementById(`${index}-buttons`).innerHTML = this.component;
+  }
+
+  renderNewPrice(index, price) {
+    this.price = price;
+    document.getElementById(`product-formulaPrice-${index}`).innerHTML = `${price}€`;
   }
 }

@@ -1,36 +1,39 @@
 function handleEdit(index) {
-  const buttonContainer = document.getElementById(`${index}-buttons`);
-  buttonContainer.innerHTML = `
-    <button
-    type="button"
-    onclick=handleSave(inputFormula, product, index)
-    >
-    Save
-    </button>
-    <button
-    type="button"
-    onclick=handleCancel(${index})
-    >
-    Cancel
-    </button>
-    <button
-    type="button"
-    onclick=handleDelete(product, index)
-    >
-    Delete
-    </button>
-  `;
+  productsPage.state = 'EDIT';
+  productsPage.renderFormula(index);
 }
 
 function handleCancel(index) {
-  const buttonContainer = document.getElementById(`${index}-buttons`);
-  buttonContainer.innerHTML = `
-    <div id=${index}-buttons>
-    <button
-    type="button"
-    onclick=handleEdit(${index})
-    >
-    Edit
-    </div>
-    `;
+  productsPage.state = 'DISPLAY';
+  productsPage.renderFormula(index);
+}
+
+function handleValidation({ price }, formula) {
+  const P = price;
+  try {
+    let result = eval(formula);
+    if (result === Infinity) {
+      result = undefined;
+    }
+    return result;
+  } catch (error) {
+    return undefined;
+  }
+}
+
+function handleSave(index) {
+  const product = productList[index];
+  const formula = document.getElementById(`formula-input-${index}`).value;
+  const newPrice = handleValidation(product, formula);
+  if (newPrice) {
+    const modifiedProduct = {
+      ...product,
+      formula,
+      formulaPrice: newPrice,
+      index,
+    };
+    productList[index] = modifiedProduct;
+    productsPage.renderNewPrice(index, newPrice);
+  }
+  productsPage.state = 'DISPLAY';
 }

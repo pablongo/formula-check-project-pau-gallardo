@@ -10,7 +10,7 @@ const productList = [
     name: 'Pretty phone',
     image: 'url',
     price: 599,
-    formulaPrice: 599,
+    formulaPrice: 1198,
     formula: '2*P',
   },
   {
