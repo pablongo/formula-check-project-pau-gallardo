@@ -83,7 +83,7 @@ class FormulaPage {
         </button>
         <button
         type="button"
-        onclick=handleDelete(product, index)
+        onclick=handleDelete(${index})
         >
         Delete
         </button>
