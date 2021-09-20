@@ -30,10 +30,11 @@ function handleSave(index) {
       ...product,
       formula,
       formulaPrice: newPrice,
-      index,
+      index
     };
     productList[index] = modifiedProduct;
     productsPage.renderNewPrice(index, newPrice);
   }
   productsPage.state = 'DISPLAY';
+  productsPage.renderFormula(index);
 }

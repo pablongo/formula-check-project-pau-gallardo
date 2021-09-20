@@ -36,6 +36,7 @@ class FormulaPage {
       <form class="formula-${index}">
         <input
         id="formula-input-${index}"
+        disabled=true
         type="text"
         name="formula-input"
         placeholder=${product.formula}
@@ -55,6 +56,7 @@ class FormulaPage {
   }
 
   renderFormula(index) {
+    let disabledInput;
     if (this.state === 'DISPLAY') {
       this.component = `
         <button
@@ -64,6 +66,7 @@ class FormulaPage {
         Edit
         </button>
         `;
+      disabledInput = true;
     } else {
       this.component = `
         <button
@@ -85,7 +88,9 @@ class FormulaPage {
         Delete
         </button>
         `;
+      disabledInput = false;
     }
+    document.getElementById(`formula-input-${index}`).disabled = disabledInput;
     document.getElementById(`${index}-buttons`).innerHTML = this.component;
   }
 
