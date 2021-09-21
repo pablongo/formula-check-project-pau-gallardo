@@ -112,6 +112,7 @@ export default function Formula({ product, index }) {
         )
         : (
           <button
+            data-testid="edit-button"
             type="button"
             onClick={handleEdit}
           >
