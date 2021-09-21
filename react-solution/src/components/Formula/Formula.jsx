@@ -68,6 +68,7 @@ export default function Formula({ product, index }) {
     };
     dispatch(saveFormulaAndPrice(modifiedProduct, storeArrayIndex));
     setCurrentFormulaState(formulaStates.DISPLAY);
+    setvalidFormula(true);
     setInputFormula('');
     setFormulaPlaceholder('');
   }
