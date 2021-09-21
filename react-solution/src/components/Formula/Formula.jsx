@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
 
-import { saveFormulaAndPrice } from '../redux/actions/actionCreators';
+import { saveFormulaAndPrice } from '../../redux/actions/actionCreators';
 
 import './Formula.css';
 

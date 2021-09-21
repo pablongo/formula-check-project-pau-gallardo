@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-import Formula from './Formula';
-import Product from './Product';
+import Formula from '../Formula/Formula';
+import Product from '../Product/Product';
 
 import './ProductsEditor.css';
 
