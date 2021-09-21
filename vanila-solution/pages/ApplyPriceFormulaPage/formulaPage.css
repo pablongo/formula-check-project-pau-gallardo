@@ -1,7 +1,12 @@
-*{
+*{    
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family:'Source Sans Pro', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    color: rgb(18,31,44);
 }
 
 .navbar{

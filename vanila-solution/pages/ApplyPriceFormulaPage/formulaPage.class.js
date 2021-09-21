@@ -40,7 +40,7 @@ class FormulaPage {
         disabled=true
         type="text"
         name="formula-input"
-        placeholder=${product.formula}
+        placeholder=${product.formula ? product.formula : '""'}
         />
         <div class="formula-container__edit-buttons" id=${index}-buttons>
             <button
