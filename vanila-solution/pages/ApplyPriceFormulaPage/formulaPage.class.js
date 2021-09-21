@@ -100,4 +100,12 @@ class FormulaPage {
     this.price = price;
     document.getElementById(`product-formulaPrice-${index}`).innerHTML = `${price}€`;
   }
+
+  renderInvalidInput(index) {
+    document.getElementById(`formula-input-${index}`).className = 'formula-container__input--valid';
+  }
+
+  renderValidInput(index) {
+    document.getElementById(`formula-input-${index}`).className = 'formula-container__input';
+  }
 }

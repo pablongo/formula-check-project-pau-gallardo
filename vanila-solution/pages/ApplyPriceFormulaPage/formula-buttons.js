@@ -37,9 +37,12 @@ function handleSave(index) {
     };
     productList[index] = modifiedProduct;
     productsPage.renderNewPrice(index, newPrice);
+    productsPage.renderValidInput(index);
+    productsPage.state = 'DISPLAY';
+  } else {
+    productsPage.renderInvalidInput(index);
   }
   input.placeholder = formula;
-  productsPage.state = 'DISPLAY';
   productsPage.renderFormula(index);
 }
 
@@ -54,6 +57,7 @@ function handleDelete(index) {
   productList[index] = modifiedProduct;
   productsPage.renderNewPrice(index, product.price);
   document.getElementById(`formula-input-${index}`).placeholder = '';
+  document.getElementById(`formula-input-${index}`).value = '';
   productsPage.state = 'DISPLAY';
   productsPage.renderFormula(index);
 }
