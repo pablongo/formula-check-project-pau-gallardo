@@ -20,10 +20,10 @@ class FormulaPage {
       `;
 
       const productModified = `
-      <div class="product-modified-container">
+      <div class="product-container">
       <h2 class="product-container__title">${product?.name}</h2>
       <img
-        className="product-container__image"
+        class="product-container__image"
         src="https://via.placeholder.com/150"
         alt="product"
       />
@@ -33,15 +33,16 @@ class FormulaPage {
       `;
 
       const formula = `
-      <form class="formula-${index}">
+      <form class="formula-container" id="formula-${index}">
         <input
+        class="formula-container__input"
         id="formula-input-${index}"
         disabled=true
         type="text"
         name="formula-input"
         placeholder=${product.formula}
         />
-        <div id=${index}-buttons>
+        <div class="formula-container__edit-buttons" id=${index}-buttons>
             <button
             type="button"
             onclick=handleEdit(${index})
@@ -51,7 +52,8 @@ class FormulaPage {
         </button>
       </form>
     `;
-      document.getElementById('product-list').innerHTML += productNotModified + formula + productModified;
+      const elements = productNotModified + formula + productModified;
+      document.getElementById('product-list').innerHTML += `<article class="products-container__articles">${elements}</article>`;
     });
   }
 
