@@ -24,7 +24,6 @@ export default function Formula({ product, index }) {
   }
 
   function handleValidation(formulaToValidate, { price }) {
-    // eslint-disable-next-line no-unused-vars
     const P = price;
     try {
       let result = eval(formulaToValidate);

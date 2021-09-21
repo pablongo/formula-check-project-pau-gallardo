@@ -21,6 +21,7 @@ module.exports = {
   rules: {
     'react/require-default-props': [0, { forbidDefaultForRequired: false, ignoreFunctionalComponents: false }],
     'no-eval': [0, { allowIndirect: false }],
-
+    'react/prop-types': 0,
+    'no-unused-vars': 0,
   },
 };
