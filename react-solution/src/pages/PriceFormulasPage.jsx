@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import ProductsEditor from '../components/ProductsEditor';
-import Navbar from '../components/Navbar';
+import ProductsEditor from '../components/ProductsEditor/ProductsEditor';
+import Navbar from '../components/Navbar/Navbar';
 
 import './PriceFormulasPage.css';
 
