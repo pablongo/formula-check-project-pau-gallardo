@@ -4,7 +4,7 @@ import './Navbar.css';
 
 export default function Navbar() {
   return (
-    <nav className="navbar">
+    <nav data-testid="navbar" className="navbar">
       <a href="/">
         <img
           className="navbar__logo"
